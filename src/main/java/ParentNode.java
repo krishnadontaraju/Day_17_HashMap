@@ -13,4 +13,5 @@ public interface ParentNode<K> {
     ParentNode<K> getNextNode();
 
     void setNextNode(ParentNode<K> nextNode);
+
 }

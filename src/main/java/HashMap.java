@@ -17,5 +17,6 @@ public class HashMap<K, V> {
             this.customHashMap.append(newMapNode);
         } else
             newMapNode.setValue(value);
+
     }
 }

@@ -77,6 +77,7 @@ public class CustomLinkedList<K> {
             temporaryNode = temporaryNode.getNextNode();
         }
         this.tail = temporaryNode;
+
     }
 
 
