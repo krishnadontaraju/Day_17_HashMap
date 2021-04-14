@@ -44,5 +44,32 @@ public class LinkedHashMap<K, V> {
             newMapNode.setValue(value);
     }
 
+    public V remove(K key)
+    {
+        int index = this.getBucketIndex(key);
+        CustomLinkedList<K> newLinkedList = this.bucketArray.get(index);
+
+        MapNode<K,V> headNode = (MapNode<K, V>) newLinkedList.searchNode(key);
+
+        MapNode<K, V> prev = null;
+        while (headNode != null) {
+            if (headNode.key.equals(key))
+                break;
+
+            prev = headNode;
+            headNode = headNode.nextNode;
+        }
+
+        if (headNode == null)
+            return null;
+
+        if (prev != null)
+            prev.nextNode = headNode.nextNode;
+        else
+            bucketArray.set(index, headNode.nextNode);
+
+        return headNode.value;
+    }
+
 
 }
