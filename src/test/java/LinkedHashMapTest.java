@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 public class LinkedHashMapTest {
     @Test
     public void givenASentence_whenWordsAreAddedToList_ShouldReturnParanoidFrequency(){
-        String sentence = "Paranoids are not paranoid because they are paranoid but because " +
-                "they keep putting themselves deliberately into paranoid avoidable situations";
+        String sentence = "Paranoids are not paranoid because they are paranoid but because they keep putting " +
+                "themselves deliberately into paranoid avoidable situations";
 
         LinkedHashMap<String , Integer > customLinkedHashMap = new LinkedHashMap<>();
         String[] sentenceToWords = sentence.toLowerCase().split(" ");
@@ -17,7 +17,8 @@ public class LinkedHashMapTest {
                 value++;
             customLinkedHashMap.add(word,value);
         }
-        int frequency = customLinkedHashMap.get("paranoid");
-        Assertions.assertEquals(3,frequency);
+        customLinkedHashMap.remove("avoidable");
+        int frequency = customLinkedHashMap.get("avoidable");
+        Assertions.assertNull(frequency);
     }
 }

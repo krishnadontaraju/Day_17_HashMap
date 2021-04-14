@@ -1,4 +1,4 @@
-public class MapNode<K, V> implements ParentNode<K> {
+public class MapNode<K, V> extends CustomLinkedList<K> implements ParentNode<K> {
     K key;
     V value;
     MapNode<K, V> nextNode;
